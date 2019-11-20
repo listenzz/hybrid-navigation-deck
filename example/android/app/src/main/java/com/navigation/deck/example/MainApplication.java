@@ -11,8 +11,9 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
+import com.navigation.deck.DeckNavigator;
 import com.navigationhybrid.ReactBridgeManager;
-import com.navigation.deck.DeckPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -27,7 +28,6 @@ public class MainApplication extends Application implements ReactApplication {
 			protected List<ReactPackage> getPackages() {
 				@SuppressWarnings("UnnecessaryLocalVariable")
 				List<ReactPackage> packages = new PackageList(this).getPackages();
-				packages.add(new DeckPackage());
 				return packages;
 			}
 
@@ -49,6 +49,7 @@ public class MainApplication extends Application implements ReactApplication {
 		initializeFlipper(this); // Remove this line if you don't want Flipper enabled
 		ReactBridgeManager bridgeManager = ReactBridgeManager.get();
 		bridgeManager.install(getReactNativeHost());
+		bridgeManager.registerNavigator(new DeckNavigator());
 		FLog.setMinimumLoggingLevel(FLog.INFO);
 	}
 

@@ -2,6 +2,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTBridgeModule.h>
 #import <NavigationHybrid/NavigationHybrid.h>
+#import <HBDDeck/HBDDeckNavigator.h>
 
 @interface AppDelegate ()
 
@@ -12,6 +13,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"example/index" fallbackResource:nil];
     [[HBDReactBridgeManager get] installWithBundleURL:jsCodeLocation launchOptions:launchOptions];
+    
+    [[HBDReactBridgeManager get] registerNavigator:[HBDDeckNavigator new]];
         
     UIStoryboard *storyboard =  [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
     UIViewController *rootViewController = [storyboard instantiateInitialViewController];

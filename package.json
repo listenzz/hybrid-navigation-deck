@@ -4,12 +4,7 @@
   "version": "1.0.0",
   "nativePackage": true,
   "description": "Double deck layout",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./lib && tsc",
-    "prestart": "npm run build",
-    "prepare": "npm run build",
     "tsc": "tsc",
     "start": "react-native start",
     "run:ios": "react-native run-ios --project-path ./example/ios",

@@ -1,57 +1,105 @@
-import React, { Component } from 'react'
-import { StyleSheet, TouchableOpacity, Text, View } from 'react-native'
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
 
-export default class App extends Component {
-  static navigationItem = {
-    titleItem: {
-      title: 'Deck 演示',
-    },
-  }
+import React from 'react'
+import { SafeAreaView, StyleSheet, ScrollView, View, Text } from 'react-native'
+import {
+  Header,
+  LearnMoreLinks,
+  Colors,
+  DebugInstructions,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen'
 
-  constructor(props) {
-    super(props)
-    this.handlePress = this.handlePress.bind(this)
-  }
-
-  handlePress() {
-    console.log('You have pressed me.')
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Hello World!</Text>
-
-        <TouchableOpacity onPress={this.handlePress} activeOpacity={0.2} style={styles.button}>
-          <Text style={styles.buttonText}>press me</Text>
-        </TouchableOpacity>
-      </View>
-    )
-  }
+export default function App() {
+  return (
+    <>
+      <SafeAreaView>
+        <ScrollView
+          contentInsetAdjustmentBehavior="never"
+          automaticallyAdjustContentInsets={false}
+          contentInset={{ top: 0, left: 0, bottom: 0, right: 0 }}
+          style={styles.scrollView}>
+          <Header />
+          {global.HermesInternal == null ? null : (
+            <View style={styles.engine}>
+              <Text style={styles.footer}>Engine: Hermes</Text>
+            </View>
+          )}
+          <View style={styles.body}>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionDescription}>
+                Edit <Text style={styles.highlight}>App.js</Text> to change this screen and then
+                come back to see your edits.
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>See Your Changes</Text>
+              <Text style={styles.sectionDescription}>
+                <ReloadInstructions />
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Debug</Text>
+              <Text style={styles.sectionDescription}>
+                <DebugInstructions />
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Learn More</Text>
+              <Text style={styles.sectionDescription}>
+                Read the docs to discover what to do next:
+              </Text>
+            </View>
+            <LearnMoreLinks />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'stretch',
-    paddingTop: 16,
+  scrollView: {
+    backgroundColor: Colors.lighter,
   },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 40,
+  engine: {
+    position: 'absolute',
+    right: 0,
   },
-
-  buttonText: {
-    backgroundColor: 'transparent',
-    color: 'rgb(34,88,220)',
+  body: {
+    backgroundColor: Colors.white,
   },
-
-  welcome: {
-    backgroundColor: 'transparent',
-    fontSize: 17,
-    textAlign: 'center',
-    margin: 8,
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: Colors.black,
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+    color: Colors.dark,
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+  footer: {
+    color: Colors.dark,
+    fontSize: 12,
+    fontWeight: '600',
+    padding: 4,
+    paddingRight: 12,
+    textAlign: 'right',
   },
 })
