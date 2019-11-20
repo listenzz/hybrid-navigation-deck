@@ -1,7 +1,7 @@
 {
   "name": "react-native-navigation-deck",
   "title": "React Native Deck",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "nativePackage": true,
   "description": "Double deck layout",
   "scripts": {
