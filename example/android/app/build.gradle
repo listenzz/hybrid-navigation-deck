@@ -71,7 +71,7 @@ dependencies {
 	} else {
 		implementation jscFlavor
 	}
-	implementation project(':react-native-deck')
+	implementation project(':react-native-navigation-deck')
 }
 
 task copyDownloadableDepsToLibs(type: Copy) {
