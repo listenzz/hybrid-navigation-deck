@@ -35,7 +35,7 @@
   "peerDependencies": {
     "react": "^16.8.1",
     "react-native": ">=0.60.4",
-    "react-native-navigation-hybrid": ">=0.17.17"
+    "react-native-navigation-hybrid": ">=0.19.5"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -52,7 +52,7 @@
     "metro-react-native-babel-preset": "^0.56.0",
     "react": "16.9.0",
     "react-native": "^0.61.3",
-    "react-native-navigation-hybrid": "^0.17.17",
+    "react-native-navigation-hybrid": "^0.19.5",
     "react-test-renderer": "16.9.0",
     "typescript": "3.5.3"
   },
