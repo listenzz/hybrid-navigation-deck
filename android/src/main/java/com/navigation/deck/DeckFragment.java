@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
 
 import com.navigation.androidx.AwesomeFragment;
 import com.navigation.androidx.FragmentHelper;
@@ -46,8 +47,8 @@ public class DeckFragment extends AwesomeFragment {
             if (bottomFragment == null || topFragment == null) {
                 throw new IllegalArgumentException("必须设定 first and second deck");
             }
-            FragmentHelper.addFragmentToAddedList(getChildFragmentManager(), R.id.bottom, bottomFragment, false);
-            FragmentHelper.addFragmentToAddedList(getChildFragmentManager(), R.id.top, topFragment, true);
+            FragmentHelper.addFragmentToAddedList(getChildFragmentManager(), R.id.bottom, bottomFragment, Lifecycle.State.RESUMED, false);
+            FragmentHelper.addFragmentToAddedList(getChildFragmentManager(), R.id.top, topFragment, Lifecycle.State.RESUMED, true);
         } else {
             bottomTag = savedInstanceState.getString(SAVED_STATE_BOTTOM_TAG);
             topTag = savedInstanceState.getString(SAVED_STATE_TOP_TAG);
