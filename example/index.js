@@ -10,6 +10,7 @@ import Normal from './Normal'
 
 Garden.setStyle({
   screenBackgroundColor: '#F8F8F8',
+  navigationBarColorAndroid: '#FFFFFF',
   topBarStyle: BarStyleDarkContent,
 })
 

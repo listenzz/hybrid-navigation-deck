@@ -9,7 +9,7 @@ export default class Translucent extends Component {
     },
     screenBackgroundColor: '#00000000',
     passThroughTouches: true,
-    navigationBarColorAndroid: '#F8F8F8',
+    navigationBarColorAndroid: '#FFFFFF',
   }
 
   constructor(props) {
