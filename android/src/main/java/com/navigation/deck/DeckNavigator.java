@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.navigation.androidx.AwesomeFragment;
@@ -84,8 +85,8 @@ public class DeckNavigator implements Navigator {
     }
 
     @Override
-    public void handleNavigation(@NonNull AwesomeFragment fragment, @NonNull String action, @NonNull ReadableMap extras) {
-
+    public void handleNavigation(@NonNull AwesomeFragment target, @NonNull String action, @NonNull ReadableMap extras, @NonNull Promise promise) {
+        promise.resolve(false);
     }
 
     private ReactBridgeManager getReactBridgeManager() {
