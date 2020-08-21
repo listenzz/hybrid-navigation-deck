@@ -47,8 +47,8 @@ public class DeckFragment extends AwesomeFragment {
             if (bottomFragment == null || topFragment == null) {
                 throw new IllegalArgumentException("必须设定 first and second deck");
             }
-            FragmentHelper.addFragmentToAddedList(getChildFragmentManager(), R.id.bottom, bottomFragment, Lifecycle.State.RESUMED, false);
-            FragmentHelper.addFragmentToAddedList(getChildFragmentManager(), R.id.top, topFragment, Lifecycle.State.RESUMED, true);
+            FragmentHelper.addFragment(getChildFragmentManager(), R.id.bottom, bottomFragment, Lifecycle.State.RESUMED, false);
+            FragmentHelper.addFragment(getChildFragmentManager(), R.id.top, topFragment, Lifecycle.State.RESUMED, true);
         } else {
             bottomTag = savedInstanceState.getString(SAVED_STATE_BOTTOM_TAG);
             topTag = savedInstanceState.getString(SAVED_STATE_TOP_TAG);

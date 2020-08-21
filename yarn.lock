@@ -5491,10 +5491,10 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-native-navigation-hybrid@^0.23.3:
-  version "0.23.7"
-  resolved "https://registry.yarnpkg.com/react-native-navigation-hybrid/-/react-native-navigation-hybrid-0.23.7.tgz#ed382682bdeb6db3f62ad9f24c9062da1f98ce6e"
-  integrity sha512-nX59zYZtXt6qscDmCtSMKOVqpKHv8GuotRjQNTtMNE7stx4/5DmAwls+xW4c3iYZHxrGmQeEJo57Y85/v7Hr0Q==
+react-native-navigation-hybrid@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/react-native-navigation-hybrid/-/react-native-navigation-hybrid-0.27.0.tgz#f21ee73e4d9cd02cff9ec927621fc71f758df500"
+  integrity sha512-XVCJkb6b/KEt3nEZBMaeLmJcfzSotaaD6fsGa4BqtUK0/kNz2bcGEHvEaA9YAC/xguE4zxnka+sa15Yz2km1CA==
   dependencies:
     path-to-regexp "^6.1.0"
 

@@ -56,7 +56,7 @@ public class DeckNavigator implements Navigator {
         if (fragment instanceof DeckFragment) {
             DeckFragment deck = (DeckFragment) fragment;
             ArrayList<Bundle> children = new ArrayList<>();
-            List<AwesomeFragment> fragments = deck.getChildFragmentsAtAddedList();
+            List<AwesomeFragment> fragments = deck.getChildFragments();
             for (int i = 0; i < fragments.size(); i++) {
                 AwesomeFragment child = fragments.get(i);
                 if (!child.getShowsDialog()) {
