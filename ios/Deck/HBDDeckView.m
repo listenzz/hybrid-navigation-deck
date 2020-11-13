@@ -16,21 +16,6 @@
     if (hitView && ![hitView isKindOfClass:filterCls]) {
         return hitView;
     }
-    
-    for (UIView *view in self.topView.subviews.reverseObjectEnumerator) {
-        CGPoint p = [self convertPoint:point toView:view];
-        if ([view pointInside:p withEvent:event]) {
-            UIView *responseView = [view hitTest:p withEvent:event];
-            if (responseView && ![responseView isKindOfClass:filterCls]) {
-                hitView = responseView;
-                break;
-            }
-        }
-    }
-    
-    if (hitView && ![hitView isKindOfClass:filterCls]) {
-        return hitView;
-    }
     return [self.bottomView hitTest:point withEvent:event];
 }
 
