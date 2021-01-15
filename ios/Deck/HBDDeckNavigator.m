@@ -70,7 +70,7 @@
             if (presentedVC.presentedViewController && !presentedVC.presentedViewController.isBeingDismissed) {
                presentedVC = presentedVC.presentedViewController;
             } else {
-                return [[HBDReactBridgeManager sharedInstance] primaryViewControllerWithViewController:presentedVC];
+                return [[HBDReactBridgeManager get] primaryViewControllerWithViewController:presentedVC];
             }
         }
     }

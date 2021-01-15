@@ -9,9 +9,9 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.navigation.androidx.AwesomeFragment;
-import com.navigationhybrid.HybridFragment;
-import com.navigationhybrid.ReactBridgeManager;
-import com.navigationhybrid.navigator.Navigator;
+import com.reactnative.hybridnavigation.HybridFragment;
+import com.reactnative.hybridnavigation.ReactBridgeManager;
+import com.reactnative.hybridnavigation.navigator.Navigator;
 
 import java.util.ArrayList;
 import java.util.Collections;

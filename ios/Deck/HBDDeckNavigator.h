@@ -6,7 +6,7 @@
 //  Copyright © 2019 Listen. All rights reserved.
 //
 
-#import <NavigationHybrid/NavigationHybrid.h>
+#import <HybridNavigation/HybridNavigation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

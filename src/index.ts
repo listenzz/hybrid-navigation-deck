@@ -1,4 +1,4 @@
-import { RouteGraph, RouteInfo, RouteHandler } from 'react-native-navigation-hybrid'
+import { RouteGraph, RouteInfo, RouteHandler } from 'hybrid-navigation'
 
 export interface DeckGraph extends RouteGraph {
   layout: 'deck'

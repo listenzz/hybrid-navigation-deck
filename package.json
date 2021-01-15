@@ -1,7 +1,7 @@
 {
-  "name": "react-native-navigation-deck",
+  "name": "hybrid-navigation-deck",
   "title": "React Native Deck",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "nativePackage": true,
   "description": "Double deck layout",
   "main": "./lib/index.js",
@@ -20,11 +20,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/listenzz/react-native-navigation-deck.git"
+    "url": "https://github.com/listenzz/hybrid-navigation-deck.git"
   },
   "author": "listen <listenzz@163.com>",
-  "homepage": "https://github.com/listenzz/react-native-navigation-deck",
-  "readme": "https://github.com/listenzz/react-native-navigation-deck#readme",
+  "homepage": "https://github.com/listenzz/hybrid-navigation-deck",
+  "readme": "https://github.com/listenzz/hybrid-navigation-deck#readme",
   "keywords": [
     "react-native",
     "navigation",
@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": "^16.8.1",
     "react-native": ">=0.60.4",
-    "react-native-navigation-hybrid": ">=0.19.5"
+    "hybrid-navigation": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -49,11 +49,11 @@
     "babel-jest": "^26.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.5.0",
+    "hybrid-navigation": "^1.0.0",
     "jest": "^26.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "react": "16.11.0",
     "react-native": "^0.62.2",
-    "react-native-navigation-hybrid": "^0.27.9",
     "react-test-renderer": "16.11.0",
     "typescript": "^3.7.3"
   },

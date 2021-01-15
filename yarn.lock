@@ -3368,6 +3368,13 @@ human-signals@^1.1.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
+hybrid-navigation@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/hybrid-navigation/-/hybrid-navigation-1.0.0.tgz#2fda602fd2e1504223e9208973b5d6f39d07484e"
+  integrity sha512-28GfGjRqNzjFL9TMF1PowwWLyJ5tgOgHqLsLNDFRnnCIy91Q/VlV8MHLdQ1lsInvXn0de6En4BW+baU8OhiPEA==
+  dependencies:
+    path-to-regexp "^6.1.0"
+
 iconv-lite@0.4.24, iconv-lite@^0.4.17, iconv-lite@^0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
@@ -5556,13 +5563,6 @@ react-is@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
-
-react-native-navigation-hybrid@^0.27.9:
-  version "0.27.9"
-  resolved "https://registry.yarnpkg.com/react-native-navigation-hybrid/-/react-native-navigation-hybrid-0.27.9.tgz#d602e822e17fedd3a562ed531c888897f81dbe69"
-  integrity sha512-3w6EdR8UmFQTBcRzdHfj7uHoS63Z3RIeo/MGxcwEHWb/r9iyLGghu3iDPRe4fHjL3FMLAxIwPnX9XT00LVj+Xw==
-  dependencies:
-    path-to-regexp "^6.1.0"
 
 react-native@^0.62.2:
   version "0.62.2"
