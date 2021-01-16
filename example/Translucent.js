@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
 import styles from './Styles'
-
+import { Navigator } from 'hybrid-navigation'
 export default class Translucent extends Component {
   static navigationItem = {
     titleItem: {
@@ -17,6 +17,7 @@ export default class Translucent extends Component {
     this.pushToTranslucent = this.pushToTranslucent.bind(this)
     this.pushToNormal = this.pushToNormal.bind(this)
     this.popToRoot = this.popToRoot.bind(this)
+    this.printRouteGraph = this.printRouteGraph.bind(this)
   }
 
   pushToTranslucent() {
@@ -29,6 +30,13 @@ export default class Translucent extends Component {
 
   popToRoot() {
     this.props.navigator.popToRoot()
+  }
+
+  async printRouteGraph() {
+    const graph = await Navigator.routeGraph()
+    console.log(graph)
+    const route = await Navigator.currentRoute()
+    console.log(route)
   }
 
   render() {
@@ -49,6 +57,13 @@ export default class Translucent extends Component {
 
           <TouchableOpacity onPress={this.popToRoot} activeOpacity={0.2} style={styles.button}>
             <Text style={styles.buttonTextYellow}>back to home</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={this.printRouteGraph}
+            activeOpacity={0.2}
+            style={styles.button}>
+            <Text style={styles.buttonTextYellow}>printRouteGraph</Text>
           </TouchableOpacity>
         </View>
       </View>

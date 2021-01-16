@@ -39,44 +39,29 @@
     return nil;
 }
 
-- (BOOL)buildRouteGraphWithController:(UIViewController *)vc root:(NSMutableArray *)root {
+- (NSDictionary *)buildRouteGraphWithViewController:(UIViewController *)vc {
     if ([vc isKindOfClass:[HBDDeckViewController class]]) {
-        HBDDeckViewController *deckViewController = (HBDDeckViewController *)vc;
-        NSMutableArray *children = [[NSMutableArray alloc] init];
-        [[HBDReactBridgeManager get] buildRouteGraphWithController:deckViewController.bottomViewController root:children];
-        [[HBDReactBridgeManager get] buildRouteGraphWithController:deckViewController.topViewController root:children];
+        HBDDeckViewController *deck = (HBDDeckViewController *)vc;
+        NSDictionary *bottom = [[HBDReactBridgeManager get] buildRouteGraphWithViewController:deck.bottomViewController];
+        NSDictionary *top = [[HBDReactBridgeManager get] buildRouteGraphWithViewController:deck.topViewController];
         
-        UIViewController *presented = deckViewController.topViewController.presentedViewController;
-        while (presented && !presented.isBeingDismissed ) {
-             [[HBDReactBridgeManager get] buildRouteGraphWithController:presented root:children];
-            presented = presented.presentedViewController;
-        }
-        
-        [root addObject:@{ @"layout": self.name,
-                           @"sceneId": vc.sceneId,
-                           @"children": children,
-                           @"mode": [vc hbd_mode],
-                           }];
-        return YES;
-    }
-    return NO;
-}
-
-- (HBDViewController *)primaryViewControllerWithViewController:(UIViewController *)vc {
-    if ([vc isKindOfClass:[HBDDeckViewController class]]) {
-        HBDDeckViewController *deckVC = (HBDDeckViewController *)vc;
-        UIViewController *presentedVC = deckVC.topViewController;
-        while (true) {
-            if (presentedVC.presentedViewController && !presentedVC.presentedViewController.isBeingDismissed) {
-               presentedVC = presentedVC.presentedViewController;
-            } else {
-                return [[HBDReactBridgeManager get] primaryViewControllerWithViewController:presentedVC];
-            }
-        }
+        return @{
+            @"layout": self.name,
+            @"sceneId": vc.sceneId,
+            @"children": @[bottom, top],
+            @"mode": [vc hbd_mode],
+        };
     }
     return nil;
 }
 
+- (HBDViewController *)primaryViewControllerWithViewController:(UIViewController *)vc {
+    if ([vc isKindOfClass:[HBDDeckViewController class]]) {
+        HBDDeckViewController *deck = (HBDDeckViewController *)vc;
+        return [[HBDReactBridgeManager get] primaryViewControllerWithViewController:deck.topViewController];
+    }
+    return nil;
+}
 
 - (void)handleNavigationWithViewController:(UIViewController *)target action:(NSString *)action extras:(NSDictionary *)extras resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject {
     resolve(@(NO));

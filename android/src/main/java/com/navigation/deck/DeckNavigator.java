@@ -19,14 +19,16 @@ import java.util.List;
 
 
 public class DeckNavigator implements Navigator {
-    private List<String> supportActions = Collections.emptyList();
+    private final List<String> supportActions = Collections.emptyList();
 
     @Override
+    @NonNull
     public String name() {
         return "deck";
     }
 
     @Override
+    @NonNull
     public List<String> supportActions() {
         return supportActions;
     }
@@ -51,16 +53,18 @@ public class DeckNavigator implements Navigator {
         return null;
     }
 
+    @Nullable
     @Override
-    public boolean buildRouteGraph(@NonNull AwesomeFragment fragment, @NonNull ArrayList<Bundle> root, @NonNull ArrayList<Bundle> modal) {
+    public Bundle buildRouteGraph(@NonNull AwesomeFragment fragment) {
         if (fragment instanceof DeckFragment) {
             DeckFragment deck = (DeckFragment) fragment;
             ArrayList<Bundle> children = new ArrayList<>();
             List<AwesomeFragment> fragments = deck.getChildFragments();
             for (int i = 0; i < fragments.size(); i++) {
                 AwesomeFragment child = fragments.get(i);
-                if (!child.getShowsDialog()) {
-                    getReactBridgeManager().buildRouteGraph(child, children, modal);
+                Bundle r = getReactBridgeManager().buildRouteGraph(child);
+                if (r != null) {
+                    children.add(r);
                 }
             }
 
@@ -69,17 +73,17 @@ public class DeckNavigator implements Navigator {
             graph.putString("sceneId", fragment.getSceneId());
             graph.putParcelableArrayList("children", children);
             graph.putString("mode", Navigator.Util.getMode(fragment));
-            root.add(graph);
-            return true;
+
+            return graph;
         }
-        return false;
+        return null;
     }
 
     @Override
     public HybridFragment primaryFragment(@NonNull AwesomeFragment fragment) {
         if (fragment instanceof DeckFragment) {
-            DeckFragment doubleDeckFragment = (DeckFragment) fragment;
-            return getReactBridgeManager().primaryFragment(doubleDeckFragment.getPrimaryFragment());
+            DeckFragment deckFragment = (DeckFragment) fragment;
+            return getReactBridgeManager().primaryFragment(deckFragment.getTopFragment());
         }
         return null;
     }

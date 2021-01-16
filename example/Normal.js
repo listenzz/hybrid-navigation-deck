@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
 import styles from './Styles'
+import { Navigator } from 'hybrid-navigation'
 
 export default class Normal extends Component {
   static navigationItem = {
@@ -14,6 +15,11 @@ export default class Normal extends Component {
     this.pushToTranslucent = this.pushToTranslucent.bind(this)
     this.pushToNormal = this.pushToNormal.bind(this)
     this.popToRoot = this.popToRoot.bind(this)
+    this.printRouteGraph = this.printRouteGraph.bind(this)
+    this.present = this.present.bind(this)
+    this.dismiss = this.dismiss.bind(this)
+    this.showModal = this.showModal.bind(this)
+    this.hideModal = this.hideModal.bind(this)
   }
 
   pushToTranslucent() {
@@ -26,6 +32,29 @@ export default class Normal extends Component {
 
   popToRoot() {
     this.props.navigator.popToRoot()
+  }
+
+  present() {
+    this.props.navigator.present('Normal')
+  }
+
+  dismiss() {
+    this.props.navigator.dismiss()
+  }
+
+  showModal() {
+    this.props.navigator.showModal('Normal')
+  }
+
+  hideModal() {
+    this.props.navigator.hideModal()
+  }
+
+  async printRouteGraph() {
+    const graph = await Navigator.routeGraph()
+    console.log(graph)
+    const route = await Navigator.currentRoute()
+    console.log(route)
   }
 
   render() {
@@ -45,6 +74,26 @@ export default class Normal extends Component {
 
         <TouchableOpacity onPress={this.popToRoot} activeOpacity={0.2} style={styles.button}>
           <Text style={styles.buttonText}>back to home</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.present} activeOpacity={0.2} style={styles.button}>
+          <Text style={styles.buttonText}>present</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.dismiss} activeOpacity={0.2} style={styles.button}>
+          <Text style={styles.buttonText}>dismiss</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.showModal} activeOpacity={0.2} style={styles.button}>
+          <Text style={styles.buttonText}>showModal</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.hideModal} activeOpacity={0.2} style={styles.button}>
+          <Text style={styles.buttonText}>hideModal</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.printRouteGraph} activeOpacity={0.2} style={styles.button}>
+          <Text style={styles.buttonText}>printRouteGraph</Text>
         </TouchableOpacity>
       </View>
     )
