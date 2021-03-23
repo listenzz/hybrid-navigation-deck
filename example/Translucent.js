@@ -44,10 +44,7 @@ export default class Translucent extends Component {
       <View style={styles.container}>
         <View style={styles.transparent}>
           <Text style={styles.welcomeRed}>这是一个透明的页面.</Text>
-          <TouchableOpacity
-            onPress={this.pushToTranslucent}
-            activeOpacity={0.2}
-            style={styles.button}>
+          <TouchableOpacity onPress={this.pushToTranslucent} activeOpacity={0.2} style={styles.button}>
             <Text style={styles.buttonTextYellow}>push 到一个透明的页面</Text>
           </TouchableOpacity>
 
@@ -59,10 +56,7 @@ export default class Translucent extends Component {
             <Text style={styles.buttonTextYellow}>back to home</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress={this.printRouteGraph}
-            activeOpacity={0.2}
-            style={styles.button}>
+          <TouchableOpacity onPress={this.printRouteGraph} activeOpacity={0.2} style={styles.button}>
             <Text style={styles.buttonTextYellow}>printRouteGraph</Text>
           </TouchableOpacity>
         </View>

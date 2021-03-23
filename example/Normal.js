@@ -61,10 +61,7 @@ export default class Normal extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>这是一个正常的页面</Text>
-        <TouchableOpacity
-          onPress={this.pushToTranslucent}
-          activeOpacity={0.2}
-          style={styles.button}>
+        <TouchableOpacity onPress={this.pushToTranslucent} activeOpacity={0.2} style={styles.button}>
           <Text style={styles.buttonText}>push 到一个透明的页面</Text>
         </TouchableOpacity>
 

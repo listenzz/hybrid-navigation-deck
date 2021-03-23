@@ -21,6 +21,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+IDEWorkspaceChecks.plist
 
 # Android/IntelliJ
 #
@@ -29,10 +30,8 @@ build/
 .gradle
 local.properties
 *.iml
-
-# Visual Studio Code
-#
-.vscode/
+.project
+.settings/
 
 # node.js
 #
