@@ -10,6 +10,5 @@ target 'Deck' do
       # to enable hermes on iOS, change `false` to `true` and then install pods
       :hermes_enabled => false
     )
-    pod 'HybridNavigation', :path => '../../node_modules/hybrid-navigation'
     pod 'HBDDeck', :path => '../../'
 end
