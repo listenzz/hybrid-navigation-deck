@@ -9,11 +9,9 @@ export function isDeckGraph(graph: RouteGraph): graph is DeckGraph {
   return graph.layout === 'deck'
 }
 
-const handler: RouteHandler = (graph: RouteGraph, route: RouteInfo, next: RouteHandler) => {
+export function deckRouteHandler(graph: RouteGraph, route: RouteInfo, next: RouteHandler) {
   if (!isDeckGraph(graph)) {
     return false
   }
   return next(graph.children[1], route, next)
 }
-
-export default handler
