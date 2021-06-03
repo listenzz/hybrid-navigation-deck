@@ -9,9 +9,9 @@ export function isDeckGraph(graph: RouteGraph): graph is DeckGraph {
   return graph.layout === 'deck'
 }
 
-export function deckRouteHandler(graph: RouteGraph, route: RouteInfo, next: RouteHandler) {
+export async function deckRouteHandler(graph: RouteGraph, route: RouteInfo, next: RouteHandler) {
   if (!isDeckGraph(graph)) {
     return false
   }
-  return next(graph.children[1], route, next)
+  return await next(graph.children[1], route, next)
 }
