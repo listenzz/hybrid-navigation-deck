@@ -16,6 +16,7 @@ export default class Translucent extends Component {
     super(props)
     this.pushToTranslucent = this.pushToTranslucent.bind(this)
     this.pushToNormal = this.pushToNormal.bind(this)
+    this.redirectToTranslucent = this.redirectToTranslucent.bind(this)
     this.popToRoot = this.popToRoot.bind(this)
     this.printRouteGraph = this.printRouteGraph.bind(this)
   }
@@ -26,6 +27,10 @@ export default class Translucent extends Component {
 
   pushToNormal() {
     this.props.navigator.push('Normal')
+  }
+
+  redirectToTranslucent() {
+    this.props.navigator.redirectTo('Translucent')
   }
 
   popToRoot() {
@@ -50,6 +55,10 @@ export default class Translucent extends Component {
 
           <TouchableOpacity onPress={this.pushToNormal} activeOpacity={0.2} style={styles.button}>
             <Text style={styles.buttonTextYellow}>push 到一个正常的页面</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={this.redirectToTranslucent} activeOpacity={0.2} style={styles.button}>
+            <Text style={styles.buttonTextYellow}>redirect 到一个透明的页面</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={this.popToRoot} activeOpacity={0.2} style={styles.button}>

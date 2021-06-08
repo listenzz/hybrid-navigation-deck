@@ -13,7 +13,7 @@ export default StyleSheet.create({
     bottom: 128,
     left: 32,
     right: 32,
-    height: 220,
+    height: 240,
     backgroundColor: 'rgba(0,0,0, 0.5)',
     justifyContent: 'flex-start',
     alignItems: 'stretch',
