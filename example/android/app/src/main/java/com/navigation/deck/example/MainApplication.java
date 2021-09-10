@@ -2,6 +2,8 @@ package com.navigation.deck.example;
 
 import android.app.Application;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.facebook.common.logging.FLog;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -43,7 +45,9 @@ public class MainApplication extends Application implements ReactApplication {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		SoLoader.init(this, /* native exopackage */ false);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        SoLoader.init(this, /* native exopackage */ false);
 		ReactBridgeManager bridgeManager = ReactBridgeManager.get();
 		bridgeManager.install(getReactNativeHost());
 		bridgeManager.registerNavigator(new DeckNavigator());
