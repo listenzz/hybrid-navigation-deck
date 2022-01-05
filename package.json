@@ -1,7 +1,7 @@
 {
   "name": "hybrid-navigation-deck",
   "title": "React Native Deck",
-  "version": "3.1.4",
+  "version": "3.2.0",
   "nativePackage": true,
   "description": "Double deck layout",
   "main": "./lib/index.js",
@@ -34,7 +34,7 @@
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
-    "hybrid-navigation": "^2.0.0",
+    "hybrid-navigation": ">=2.7.0",
     "react": ">=16.8",
     "react-native": ">=0.60"
   },
@@ -47,7 +47,7 @@
     "@types/react-test-renderer": "17.0.1",
     "babel-jest": "^27.1.1",
     "eslint": "^7.32.0",
-    "hybrid-navigation": "^2.1.2",
+    "hybrid-navigation": "^2.7.1",
     "jest": "^27.1.1",
     "metro-react-native-babel-preset": "^0.66.2",
     "react": "17.0.2",

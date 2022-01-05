@@ -11,7 +11,7 @@ import androidx.lifecycle.Lifecycle;
 
 import com.navigation.androidx.AwesomeFragment;
 import com.navigation.androidx.FragmentHelper;
-import com.navigation.androidx.NavigationFragment;
+import com.navigation.androidx.StackFragment;
 
 public class DeckFragment extends AwesomeFragment {
 
@@ -66,11 +66,11 @@ public class DeckFragment extends AwesomeFragment {
 
     @Nullable
     @Override
-    public NavigationFragment getNavigationFragment() {
+    public StackFragment getStackFragment() {
         if (!topFragment.isAdded()) {
             return null;
         }
-        return topFragment.getNavigationFragment();
+        return topFragment.getStackFragment();
     }
 
 
