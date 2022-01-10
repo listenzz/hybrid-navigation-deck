@@ -41,8 +41,8 @@ public class DeckFragment extends AwesomeFragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         if (savedInstanceState == null) {
             if (bottomFragment == null || topFragment == null) {
                 throw new IllegalArgumentException("必须设定 first and second deck");
@@ -55,8 +55,11 @@ public class DeckFragment extends AwesomeFragment {
             bottomFragment = (AwesomeFragment) getChildFragmentManager().findFragmentByTag(bottomTag);
             topFragment = (AwesomeFragment) getChildFragmentManager().findFragmentByTag(topTag);
         }
+        if (topFragment != null) {
+            topFragment.setDefinesPresentationContext(true);
+        }
     }
-
+    
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -72,18 +75,13 @@ public class DeckFragment extends AwesomeFragment {
         }
         return topFragment.getStackFragment();
     }
-
-
-
+    
     public void setBottomFragment(AwesomeFragment bottomFragment) {
         this.bottomFragment = bottomFragment;
         this.bottomTag = bottomFragment.getSceneId();
     }
-
-
-
+    
     public void setTopFragment(AwesomeFragment topFragment) {
-        topFragment.setDefinesPresentationContext(true);
         this.topFragment = topFragment;
         this.topTag = topFragment.getSceneId();
     }
