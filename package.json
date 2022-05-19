@@ -1,38 +1,42 @@
 {
   "name": "hybrid-navigation-deck",
-  "title": "React Native Deck",
-  "version": "3.2.1",
-  "nativePackage": true,
   "description": "Double deck layout",
+  "version": "3.3.0",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
-  "scripts": {
-    "build": "rm -rf ./lib && tsc",
-    "prestart": "npm run build",
-    "prepare": "npm run build",
-    "tsc": "tsc",
-    "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
-    "start": "react-native start --reset-cache",
-    "run:ios": "react-native run-ios --project-path ./example/ios",
-    "start:android": "adb shell am start -n com.navigation.deck.example/.MainActivity",
-    "run:android": "cd example/android && ./gradlew installDebug && npm run start:android",
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/listenzz/hybrid-navigation-deck.git"
-  },
-  "author": "listen <listenzz@163.com>",
-  "homepage": "https://github.com/listenzz/hybrid-navigation-deck",
-  "readme": "https://github.com/listenzz/hybrid-navigation-deck#readme",
+  "react-native": "src/index",
+  "nativePackage": true,
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "HBDDeck.podspec",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__"
+  ],
+  "repository": "https://github.com/listenzz/hybrid-navigation-deck",
+  "homepage": "https://github.com/listenzz/hybrid-navigation-deck#readme",
+  "author": "listen <listenzz@163.com> (https://github.com/listenzz)",
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
   "keywords": [
     "react-native",
     "navigation",
     "deck"
   ],
-  "license": "MIT",
-  "licenseFilename": "LICENSE",
-  "readmeFilename": "README.md",
+  "scripts": {
+    "build": "rm -rf ./lib && tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "start": "react-native start --reset-cache",
+    "run:ios": "react-native run-ios --project-path ./example/ios",
+    "start:android": "adb shell am start -n com.navigation.deck.example/.MainActivity",
+    "run:android": "cd example/android && ./gradlew installDebug && npm run start:android",
+    "test": "jest",
+    "tsc": "tsc",
+    "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx"
+  },
   "peerDependencies": {
     "hybrid-navigation": ">=2.7.0",
     "react": ">=16.8",
@@ -41,19 +45,19 @@
   "devDependencies": {
     "@babel/core": "^7.14.8",
     "@babel/runtime": "^7.14.8",
-    "@react-native-community/eslint-config": "^3.0.1",
+    "@react-native-community/eslint-config": "^3.0.2",
     "@types/jest": "^27.0.1",
-    "@types/react-native": "^0.65.0",
-    "@types/react-test-renderer": "17.0.1",
+    "@types/react-native": "^0.67.0",
+    "@types/react-test-renderer": "17.0.2",
     "babel-jest": "^27.1.1",
     "eslint": "^7.32.0",
-    "hybrid-navigation": "^2.7.1",
+    "hybrid-navigation": "^2.9.0",
     "jest": "^27.1.1",
     "metro-react-native-babel-preset": "^0.66.2",
     "react": "17.0.2",
-    "react-native": "^0.66.0",
+    "react-native": "^0.67.4",
     "react-test-renderer": "17.0.2",
-    "typescript": "^4.3.5"
+    "typescript": "^4.6.4"
   },
   "resolutions": {
     "@types/react": "^17"
@@ -68,5 +72,8 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "@types/react": "^17"
   }
 }
