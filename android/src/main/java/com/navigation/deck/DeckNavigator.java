@@ -59,7 +59,7 @@ public class DeckNavigator implements Navigator {
         if (fragment instanceof DeckFragment) {
             DeckFragment deck = (DeckFragment) fragment;
             ArrayList<Bundle> children = new ArrayList<>();
-            List<AwesomeFragment> fragments = deck.getChildFragments();
+            List<AwesomeFragment> fragments = deck.getChildAwesomeFragments();
             for (int i = 0; i < fragments.size(); i++) {
                 AwesomeFragment child = fragments.get(i);
                 Bundle r = getReactBridgeManager().buildRouteGraph(child);
