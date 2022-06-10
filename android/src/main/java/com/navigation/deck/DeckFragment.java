@@ -23,10 +23,10 @@ public class DeckFragment extends AwesomeFragment {
 
     private AwesomeFragment bottomFragment;
     private AwesomeFragment topFragment;
-
+    
     @Override
-    public boolean isParentAwesomeFragment() {
-        return true;
+    public boolean isLeafAwesomeFragment() {
+        return false;
     }
 
     @Override
