@@ -1,7 +1,7 @@
 {
   "name": "hybrid-navigation-deck",
   "description": "Double deck layout",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "react-native": "src/index",
