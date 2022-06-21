@@ -20,7 +20,6 @@ export default class Normal extends Component {
     this.present = this.present.bind(this)
     this.dismiss = this.dismiss.bind(this)
     this.showModal = this.showModal.bind(this)
-    this.hideModal = this.hideModal.bind(this)
   }
 
   pushToTranslucent() {
@@ -48,12 +47,9 @@ export default class Normal extends Component {
   }
 
   showModal() {
-    this.props.navigator.showModal('Normal')
+    this.props.navigator.showModal('Modal')
   }
 
-  hideModal() {
-    this.props.navigator.hideModal()
-  }
 
   async printRouteGraph() {
     const graph = await Navigator.routeGraph()
@@ -92,10 +88,6 @@ export default class Normal extends Component {
 
         <TouchableOpacity onPress={this.showModal} activeOpacity={0.2} style={styles.button}>
           <Text style={styles.buttonText}>showModal</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.hideModal} activeOpacity={0.2} style={styles.button}>
-          <Text style={styles.buttonText}>hideModal</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.printRouteGraph} activeOpacity={0.2} style={styles.button}>
