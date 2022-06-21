@@ -42,17 +42,38 @@
 - (NSDictionary *)buildRouteGraphWithViewController:(UIViewController *)vc {
     if ([vc isKindOfClass:[HBDDeckViewController class]]) {
         HBDDeckViewController *deck = (HBDDeckViewController *)vc;
+        NSMutableArray *children = [[NSMutableArray alloc] init];
+        
         NSDictionary *bottom = [[HBDReactBridgeManager get] buildRouteGraphWithViewController:deck.bottomViewController];
+        [children addObject:bottom];
+        
         NSDictionary *top = [[HBDReactBridgeManager get] buildRouteGraphWithViewController:deck.topViewController];
+        [children addObject:top];
+        
+        [children addObjectsFromArray:[self presentedGraphsWithRootViewController:deck.topViewController]];
         
         return @{
             @"layout": self.name,
             @"sceneId": vc.sceneId,
-            @"children": @[bottom, top],
+            @"children": children,
             @"mode": [vc hbd_mode],
         };
     }
     return nil;
+}
+
+- (NSArray *)presentedGraphsWithRootViewController:(UIViewController *)vc {
+    NSMutableArray *graphs = [[NSMutableArray alloc] init];
+    UIViewController *presented = vc.presentedViewController;
+    while (presented && !presented.beingDismissed && ![presented isKindOfClass:[UIAlertController class]]) {
+        NSDictionary *graph = [[HBDReactBridgeManager get] buildRouteGraphWithViewController:presented];
+        if (graph) {
+            [graphs addObject:graph];
+        }
+        presented = presented.presentedViewController;
+    }
+    
+    return graphs;
 }
 
 - (HBDViewController *)primaryViewControllerWithViewController:(UIViewController *)vc {

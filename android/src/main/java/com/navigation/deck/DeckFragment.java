@@ -70,10 +70,10 @@ public class DeckFragment extends AwesomeFragment {
     @Nullable
     @Override
     public StackFragment getStackFragment() {
-        if (!topFragment.isAdded()) {
-            return null;
+        if (topFragment.isAdded()) {
+            return topFragment.getStackFragment();
         }
-        return topFragment.getStackFragment();
+        return null;
     }
     
     public void setBottomFragment(AwesomeFragment bottomFragment) {
