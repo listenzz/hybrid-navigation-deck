@@ -1,7 +1,7 @@
 {
   "name": "hybrid-navigation-deck",
   "description": "Double deck layout",
-  "version": "3.5.0",
+  "version": "3.6.0",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "react-native": "src/index",
@@ -38,7 +38,7 @@
     "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx"
   },
   "peerDependencies": {
-    "hybrid-navigation": ">=2.11.2",
+    "hybrid-navigation": ">=2.12.2",
     "react": ">=16.8",
     "react-native": ">=0.60"
   },
@@ -51,7 +51,7 @@
     "@types/react-test-renderer": "17.0.2",
     "babel-jest": "^27.1.1",
     "eslint": "^7.32.0",
-    "hybrid-navigation": "^2.11.2",
+    "hybrid-navigation": "^2.12.2",
     "jest": "^27.1.1",
     "metro-react-native-babel-preset": "^0.66.2",
     "react": "17.0.2",

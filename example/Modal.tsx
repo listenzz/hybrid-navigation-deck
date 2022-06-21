@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
 import styles from './Styles'
 import { Navigator, useNavigator } from 'hybrid-navigation'
