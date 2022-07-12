@@ -50,7 +50,6 @@ export default class Normal extends Component {
     this.props.navigator.showModal('Modal')
   }
 
-
   async printRouteGraph() {
     const graph = await Navigator.routeGraph()
     console.log(graph)
