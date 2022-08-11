@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.facebook.react.bridge.Promise;
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.navigation.androidx.AwesomeFragment;
@@ -95,10 +95,10 @@ public class DeckNavigator implements Navigator {
         }
         return null;
     }
-
+    
     @Override
-    public void handleNavigation(@NonNull AwesomeFragment target, @NonNull String action, @NonNull ReadableMap extras, @NonNull Promise promise) {
-        promise.resolve(false);
+    public void handleNavigation(@NonNull AwesomeFragment target, @NonNull String action, @NonNull ReadableMap extras, @NonNull Callback callback) {
+        callback.invoke(null, false);
     }
 
     private ReactBridgeManager getReactBridgeManager() {

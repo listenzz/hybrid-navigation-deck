@@ -4,6 +4,10 @@
 #import <HybridNavigation/HybridNavigation.h>
 #import <HBDDeck/HBDDeckNavigator.h>
 
+#if RCT_DEV
+#import <React/RCTDevLoadingView.h>
+#endif
+
 @interface AppDelegate ()
 
 @end
@@ -11,10 +15,15 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"example/index" fallbackResource:nil];
-    [[HBDReactBridgeManager get] installWithBundleURL:jsCodeLocation launchOptions:launchOptions];
+    
+    RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+    [[HBDReactBridgeManager get] installWithBridge:bridge];
     
     [[HBDReactBridgeManager get] registerNavigator:[HBDDeckNavigator new]];
+    
+#if RCT_DEV
+    [[HBDReactBridgeManager get].bridge moduleForClass:[RCTDevLoadingView class]];
+#endif
         
     UIStoryboard *storyboard =  [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
     UIViewController *rootViewController = [storyboard instantiateInitialViewController];
@@ -23,6 +32,14 @@
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
+#if DEBUG
+    return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"example/index" fallbackResource:nil];
+#else
+    return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
 }
 
 @end

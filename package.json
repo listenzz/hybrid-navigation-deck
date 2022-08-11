@@ -30,15 +30,14 @@
     "build": "rm -rf ./lib && tsc -p tsconfig.build.json",
     "prepare": "npm run build",
     "start": "react-native start --reset-cache",
-    "run:ios": "react-native run-ios --project-path ./example/ios",
-    "start:android": "adb shell am start -n com.navigation.deck.example/.MainActivity",
-    "run:android": "cd example/android && ./gradlew installDebug && npm run start:android",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
     "test": "jest",
     "tsc": "tsc",
     "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx"
   },
   "peerDependencies": {
-    "hybrid-navigation": ">=2.12.2",
+    "hybrid-navigation": ">=2.13.0",
     "react": ">=16.8",
     "react-native": ">=0.60"
   },
@@ -47,11 +46,12 @@
     "@babel/runtime": "^7.14.8",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^27.0.1",
+    "@types/react": "^17",
     "@types/react-native": "^0.67.0",
     "@types/react-test-renderer": "17.0.2",
     "babel-jest": "^27.1.1",
     "eslint": "^7.32.0",
-    "hybrid-navigation": "^2.12.2",
+    "hybrid-navigation": "2.13.0-beta.0",
     "jest": "^27.1.1",
     "metro-react-native-babel-preset": "^0.66.2",
     "prettier": "^2.7.1",
@@ -73,8 +73,5 @@
       "json",
       "node"
     ]
-  },
-  "dependencies": {
-    "@types/react": "^17"
   }
 }

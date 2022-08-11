@@ -19,54 +19,52 @@
     return @[];
 }
 
-- (UIViewController *)createViewControllerWithLayout:(NSDictionary *)layout {
-    NSDictionary *deck = [layout objectForKey:self.name];
-    NSArray *children = [deck objectForKey:@"children"];
-    if (children && children.count == 2) {
-        NSDictionary *bottom = [children objectAtIndex:0];
-        NSDictionary *top = [children objectAtIndex:1];
-        
-        UIViewController *bottomVC = [[HBDReactBridgeManager get] controllerWithLayout:bottom];
-        UIViewController *topVC = [[HBDReactBridgeManager get] controllerWithLayout:top];
-        
-        if (bottomVC && topVC) {
-            HBDDeckViewController *deckVC = [[HBDDeckViewController alloc] init];
-            deckVC.bottomViewController = bottomVC;
-            deckVC.topViewController = topVC;
-            return deckVC;
-        }
+- (UIViewController *)viewControllerWithLayout:(NSDictionary *)layout {
+    NSDictionary *model = [layout objectForKey:self.name];
+    NSArray *children = [model objectForKey:@"children"];
+    if (children.count != 2) {
+        return nil;
     }
+
+    UIViewController *bottom = [[HBDReactBridgeManager get] viewControllerWithLayout:[children objectAtIndex:0]];
+    UIViewController *top = [[HBDReactBridgeManager get] viewControllerWithLayout:[children objectAtIndex:1]];
+    
+    if (bottom && top) {
+        HBDDeckViewController *deck = [[HBDDeckViewController alloc] init];
+        deck.bottomViewController = bottom;
+        deck.topViewController = top;
+        return deck;
+    }
+    
     return nil;
 }
 
-- (NSDictionary *)buildRouteGraphWithViewController:(UIViewController *)vc {
-    if ([vc isKindOfClass:[HBDDeckViewController class]]) {
-        HBDDeckViewController *deck = (HBDDeckViewController *)vc;
-        NSMutableArray *children = [[NSMutableArray alloc] init];
-        
-        NSDictionary *bottom = [[HBDReactBridgeManager get] buildRouteGraphWithViewController:deck.bottomViewController];
-        [children addObject:bottom];
-        
-        NSDictionary *top = [[HBDReactBridgeManager get] buildRouteGraphWithViewController:deck.topViewController];
-        [children addObject:top];
-        
-        [children addObjectsFromArray:[self presentedGraphsWithRootViewController:deck.topViewController]];
-        
-        return @{
-            @"layout": self.name,
-            @"sceneId": vc.sceneId,
-            @"children": children,
-            @"mode": [vc hbd_mode],
-        };
+- (NSDictionary *)routeGraphWithViewController:(UIViewController *)vc {
+    if (![vc isKindOfClass:[HBDDeckViewController class]]) {
+        return nil;
     }
-    return nil;
+    
+    HBDDeckViewController *deck = (HBDDeckViewController *)vc;
+    NSMutableArray *children = [[NSMutableArray alloc] init];
+    NSDictionary *bottom = [[HBDReactBridgeManager get] routeGraphWithViewController:deck.bottomViewController];
+    [children addObject:bottom];
+    NSDictionary *top = [[HBDReactBridgeManager get] routeGraphWithViewController:deck.topViewController];
+    [children addObject:top];
+    [children addObjectsFromArray:[self presentedGraphsWithRootViewController:deck.topViewController]];
+    
+    return @{
+        @"layout": self.name,
+        @"sceneId": deck.sceneId,
+        @"children": children,
+        @"mode": [deck hbd_mode],
+    };
 }
 
 - (NSArray *)presentedGraphsWithRootViewController:(UIViewController *)vc {
     NSMutableArray *graphs = [[NSMutableArray alloc] init];
     UIViewController *presented = vc.presentedViewController;
     while (presented && !presented.beingDismissed && ![presented isKindOfClass:[UIAlertController class]]) {
-        NSDictionary *graph = [[HBDReactBridgeManager get] buildRouteGraphWithViewController:presented];
+        NSDictionary *graph = [[HBDReactBridgeManager get] routeGraphWithViewController:presented];
         if (graph) {
             [graphs addObject:graph];
         }
@@ -84,8 +82,13 @@
     return nil;
 }
 
-- (void)handleNavigationWithViewController:(UIViewController *)target action:(NSString *)action extras:(NSDictionary *)extras resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject {
-    resolve(@(NO));
+- (void)handleNavigationWithViewController:(UIViewController *)vc action:(NSString *)action extras:(NSDictionary *)extras callback:(RCTResponseSenderBlock)callback {
+    callback(@[NSNull.null, @NO]);
 }
+
+- (void)invalidate {
+    
+}
+
 
 @end
