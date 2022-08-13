@@ -46,7 +46,7 @@ export default class Translucent extends Component {
 
   render() {
     return (
-      <View style={styles.container} pointerEvents="box-none">
+      <View style={styles.container}>
         <View style={styles.transparent}>
           <Text style={styles.welcomeRed}>这是一个透明的页面.</Text>
           <TouchableOpacity onPress={this.pushToTranslucent} activeOpacity={0.2} style={styles.button}>
