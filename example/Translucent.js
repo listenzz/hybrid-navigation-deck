@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
 import styles from './Styles'
-import { Navigator } from 'hybrid-navigation'
+import Navigation from 'hybrid-navigation'
 export default class Translucent extends Component {
   static navigationItem = {
     titleItem: {
@@ -38,9 +38,9 @@ export default class Translucent extends Component {
   }
 
   async printRouteGraph() {
-    const graph = await Navigator.routeGraph()
+    const graph = await Navigation.routeGraph()
     console.log(graph)
-    const route = await Navigator.currentRoute()
+    const route = await Navigation.currentRoute()
     console.log(route)
   }
 

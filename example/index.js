@@ -1,21 +1,21 @@
-import { ReactRegistry, Navigator, Garden, BarStyleDarkContent } from 'hybrid-navigation'
+import Navigation, { BarStyleDarkContent } from 'hybrid-navigation'
 import App from './App'
 import Translucent from './Translucent'
 import Normal from './Normal'
 import Modal from './Modal'
 
-Garden.setStyle({
+Navigation.setDefaultOptions({
   screenBackgroundColor: '#F8F8F8',
   navigationBarColorAndroid: '#FFFFFF',
   topBarStyle: BarStyleDarkContent,
 })
 
-ReactRegistry.startRegisterComponent()
-ReactRegistry.registerComponent('App', () => App)
-ReactRegistry.registerComponent('Translucent', () => Translucent)
-ReactRegistry.registerComponent('Normal', () => Normal)
-ReactRegistry.registerComponent('Modal', () => Modal)
-ReactRegistry.endRegisterComponent()
+Navigation.startRegisterComponent()
+Navigation.registerComponent('App', () => App)
+Navigation.registerComponent('Translucent', () => Translucent)
+Navigation.registerComponent('Normal', () => Normal)
+Navigation.registerComponent('Modal', () => Modal)
+Navigation.endRegisterComponent()
 
 const deck = {
   deck: {
@@ -32,4 +32,4 @@ const deck = {
   },
 }
 // 设置 UI 层级
-Navigator.setRoot(deck)
+Navigation.setRoot(deck)

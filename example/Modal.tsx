@@ -1,15 +1,15 @@
 import React from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
 import styles from './Styles'
-import { Navigator, useNavigator } from 'hybrid-navigation'
+import Navigation, { useNavigator } from 'hybrid-navigation'
 
 export default function Modal() {
   const navigator = useNavigator()
 
   async function printRouteGraph() {
-    const graph = await Navigator.routeGraph()
+    const graph = await Navigation.routeGraph()
     console.log(graph)
-    const route = await Navigator.currentRoute()
+    const route = await Navigation.currentRoute()
     console.log(route)
   }
 
