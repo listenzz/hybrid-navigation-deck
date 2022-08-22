@@ -46,7 +46,7 @@
     if ([self.topViewController isKindOfClass:[UINavigationController class]]) {
         return (UINavigationController *)self.topViewController;
     }
-    return self.topViewController.navigationController;
+    return nil;
 }
 
 - (UIViewController *)childViewControllerForStatusBarStyle {
