@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity, TextInput } from 'react-native'
 import styles from './Styles'
 import Navigation from 'hybrid-navigation'
+import { KeyboardInsetsView } from 'react-native-keyboard-insets'
 
 export default class Normal extends Component {
   static navigationItem = {
@@ -92,6 +93,9 @@ export default class Normal extends Component {
         <TouchableOpacity onPress={this.printRouteGraph} activeOpacity={0.2} style={styles.button}>
           <Text style={styles.buttonText}>printRouteGraph</Text>
         </TouchableOpacity>
+        <KeyboardInsetsView extraHeight={16} style={styles.keyboard}>
+          <TextInput style={styles.input} placeholder={'test keyboard instes'} textAlignVertical="center" />
+        </KeyboardInsetsView>
       </View>
     )
   }

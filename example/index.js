@@ -31,5 +31,12 @@ const deck = {
     ],
   },
 }
+
+const drawer = {
+  drawer: {
+    children: [deck, { screen: { moduleName: 'App' } }],
+  },
+}
+
 // 设置 UI 层级
-Navigation.setRoot(deck)
+Navigation.setRoot(drawer)
