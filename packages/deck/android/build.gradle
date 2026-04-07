@@ -1,0 +1,50 @@
+// android/build.gradle
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')
+    def major = agpVersion[0].toInteger()
+    def minor = agpVersion[1].toInteger()
+    if ((major == 7 && minor >= 3) || major >= 8) {
+        namespace "com.navigation.deck"
+        buildFeatures {
+            buildConfig true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    compileSdkVersion safeExtGet('compileSdkVersion', 36)
+    buildToolsVersion safeExtGet('buildToolsVersion', '36.0.0')
+
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', 24)
+        targetSdkVersion safeExtGet('targetSdkVersion', 36)
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation "com.facebook.react:react-android:+"
+    implementation project(':hybrid-navigation')
+}

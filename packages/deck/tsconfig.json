@@ -1,0 +1,19 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "./lib",
+    "noEmit": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "allowImportingTsExtensions": false,
+    "baseUrl": "./",
+    "paths": {
+      "hybrid-navigation-deck": ["src/index"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "useUnknownInCatchVariables": false
+  },
+  "include": ["./src/**/*"]
+}

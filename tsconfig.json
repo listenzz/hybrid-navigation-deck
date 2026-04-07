@@ -1,24 +1,11 @@
 {
+  "extends": "@react-native/typescript-config",
   "compilerOptions": {
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "target": "esnext",
-    "module": "esnext",
-    "lib": ["esnext"],
-    "jsx": "react-native",
-    "moduleResolution": "node",
-    "declaration": true,
-    "outDir": "./lib",
-    "noEmit": true,
-    "strict": true,
-    "noImplicitAny": true,
     "baseUrl": "./",
     "paths": {
-      "hybrid-navigation-deck": ["src/index"]
-    },
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "useUnknownInCatchVariables": false
+      "hybrid-navigation-deck": ["./packages/deck/src/index"]
+    }
   },
-  "include": ["./src/**/*", "./example/**/*"]
+  "include": ["src/**/*", "packages/deck/src/**/*"],
+  "exclude": ["**/node_modules", "**/Pods"]
 }

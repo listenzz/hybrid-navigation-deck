@@ -1,0 +1,46 @@
+{
+  "name": "hybrid-navigation-deck",
+  "description": "Double deck layout",
+  "version": "4.0.2",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "typings": "./lib/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "nativePackage": true,
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "HBDDeck.podspec",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__"
+  ],
+  "repository": "https://github.com/listenzz/hybrid-navigation-deck",
+  "homepage": "https://github.com/listenzz/hybrid-navigation-deck#readme",
+  "author": "listen <listenzz@163.com> (https://github.com/listenzz)",
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "keywords": [
+    "react-native",
+    "navigation",
+    "deck"
+  ],
+  "scripts": {
+    "build": "rm -rf ./lib && tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "test": "jest",
+    "tsc": "tsc",
+    "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx"
+  },
+  "peerDependencies": {
+    "hybrid-navigation": ">=3.1.2",
+    "react": ">=19.2",
+    "react-native": ">=0.84"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
